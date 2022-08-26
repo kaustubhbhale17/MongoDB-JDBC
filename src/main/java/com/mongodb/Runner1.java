@@ -33,6 +33,7 @@ public class Runner1 {
 		System.out.println("Enter city ");
 		String city = String.valueOf(reader.readLine());
 		
+		//inserting a record
 		Document d = new Document();
 		d.append("name", firstName);
 		d.append("age", age);
@@ -41,6 +42,15 @@ public class Runner1 {
 		System.out.println("Record inserted ! ");
 		User u = new User(firstName,age,city);
 		users.add(u);
+		
+		//updating record
+		System.out.println("------------------------------");
+		System.out.println("Enter the name for which the record is to be updated");
+		String name=String.valueOf(reader.readLine());
+		System.out.println("Enter the new age:");
+		int newage = Integer.valueOf(reader.readLine());
+		BasicDBObject query =new BasicDBObject();
+		
 		
 		//displaying all the results
 		FindIterable<Document> list = collection.find();
@@ -51,6 +61,8 @@ public class Runner1 {
 		}
 		
 		System.out.println("End");
+		
+		//comment
 	}
 
 }
